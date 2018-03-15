@@ -19,9 +19,15 @@ class Unit extends Model
     protected $siunit;
     protected $unitValue;
 
+    // constants defined before
     public static $units = array("minute","hour","day","degree","arcminute","arcsecond","hectare","litre","tonne");
     public static $symbols = array("ha","min","h","d","°","'",'"',"L","t");
 
+    /**
+     * function to get unit instance by name
+     * @param  String $unitName
+     * @return Unit
+     */
     static function getInstanceByName($unitName) {
         switch ($unitName) {
             case 'minute': return new Minute();
@@ -37,6 +43,11 @@ class Unit extends Model
         }
     }
 
+    /**
+     * function to get unit instance by symbol
+     * @param  String $unitName
+     * @return Unit
+     */
     static function getInstanceBySymbol($unitName) {
         switch ($unitName) {
             case 'min': return new Minute();
@@ -52,10 +63,18 @@ class Unit extends Model
         }
     }
 
+    /**
+     * function to get si unit value
+     * @return String
+     */
     function getSiUnit() {
         return $this->siunit;
     }
 
+    /**
+     * function to get unit value
+     * @return String
+     */
     function getUnitValue() {
         return $this->unitValue;
     }

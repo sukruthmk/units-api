@@ -55,6 +55,12 @@ class UnitsController extends Controller
         return $result;
     }
 
+    /**
+     * function to get replace value for the string
+     * @param Unit $unitInstance
+     * @param String $type - either "value" or "name"
+     * @return String
+     */
     function getReplaceValue($unitInstance, $type = "value") {
         if($type == "name") {
             return $unitInstance->getSiUnit();
@@ -63,6 +69,14 @@ class UnitsController extends Controller
         return $unitInstance->getUnitValue();
     }
 
+    /**
+     * function to get replace string
+     * @param Array $array
+     * @param String $string - input string for replace
+     * @param String $type - either "value" or "name"
+     * @param String $returnType - either "value" or "name"
+     * @return String
+     */
     function string_replace($array, $string, $type, $returnType) {
         foreach ($array as $unit) {
             if(strpos($string, $unit) !== false){
@@ -80,30 +94,20 @@ class UnitsController extends Controller
         return $string;
     }
 
+    /**
+     * function to replace value in a string using exact match pattern
+     * @param String $search - string to search
+     * @param String $replace - string to replace
+     * @param String $string - input string
+     * @return String
+     */
     function exact_replace($search, $replace, $string) {
         $searchString = "/\b(".$search.")\b/";
+        if(in_array($search, array('°',"''",'"'))) {
+            return str_replace($search, $replace, $string);
+        }
+
         return preg_replace($searchString, $replace, $string);
     }
 
-    // /**
-    //  * function to get si units name for response like (rad/s)
-    //  * @param  Unit $unitA
-    //  * @param  Unit $unitB
-    //  * @return String - formatted return value of units
-    //  */
-    // public function getUnitName($unitA, $unitB) {
-    //     $siUnitA = $unitA->getSiUnit();
-    //     $siUnitB = $unitB->getSiUnit();
-    //     return "(".$siUnitA."/".$siUnitB.")";
-    // }
-
-    // /**
-    //  * function to get MultiplicationFactor
-    //  * @param  Unit $unitA
-    //  * @param  Unit $unitB
-    //  * @return Float - divided value
-    //  */
-    // public function getMultiplicationFactor($unitA, $unitB) {
-    //     return $unitA->getUnitValue()/$unitB->getUnitValue();
-    // }
 }
