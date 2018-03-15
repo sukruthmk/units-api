@@ -4,6 +4,9 @@ A simple web-service to perform unit conversion to SI unit
 This project is developed using lumen micro framework.
 https://github.com/laravel/lumen
 
+### Demo ###
+https://sukruth-units-api.herokuapp.com/units/si?units=(degree/minute)
+
 ### Installation ###
 
 * `git clone https://github.com/sukruthmk/cast.git projectname`
