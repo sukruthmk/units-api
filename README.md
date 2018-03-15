@@ -22,7 +22,7 @@ RETURNS: conversion - A conversion object**
 ### Example Request ###
 ##### Request #####
 ```
-GET /units/si?units=(degree/minute)
+GET /public/units/si?units=(degree/minute)
 ```
 ##### Reponse #####
 ```
