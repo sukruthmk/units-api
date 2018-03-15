@@ -25,7 +25,7 @@ RETURNS: conversion - A conversion object**
 ### Example Request ###
 ##### Request #####
 ```
-GET /public/units/si?units=(degree/minute)
+GET /units/si?units=(degree/minute)
 ```
 ##### Reponse #####
 ```
