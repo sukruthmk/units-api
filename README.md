@@ -20,7 +20,16 @@ RETURNS: conversion - A conversion object**
 ```
 
 ### Example Request ###
+##### Request #####
 ```
 GET /units/si?units=(degree/minute)
 ```
-Example parameters: `degree , degree/minute , (degree/(minute*hectare)) , ha*°`
+##### Reponse #####
+```
+{
+ "unit_name": "(rad/s)",
+ "multiplication_factor": .00029088820867
+}
+```
+##### Example parameters #####
+`degree , degree/minute , (degree/(minute*hectare)) , ha*°`
