@@ -12,10 +12,12 @@ https://github.com/laravel/lumen
 * Create a database and inform *.env* (remove *.example*)
 
 ### Api ###
+```
 METHOD: GET
 PATH: /units/si
 PARAMS: units - A unit string*
 RETURNS: conversion - A conversion object**
+```
 
 ### Example Request ###
 ```
